@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  devise_scope :user do
-    root to: "devise/sessions#new"
+
+  resources :users, :only => [:show] do
+    resources :consumptions
   end
+
+  root :to => "foods#index"
+
+  resources :foods, :only => [:index]
+
 end
