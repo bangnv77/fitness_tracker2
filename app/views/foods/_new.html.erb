@@ -1,10 +1,10 @@
-<h1><%= @user.email %>'s Profile</h1>
-<p>Something!</p>
+<h1> <%= @user.email %>'s Profile </h1>
+<p> Something! </p>
 
-<h3>You have eaten:</h3>
+<h3> You have eaten: </h3>
 <ul>
   <% @user.consumptions.each do |consumption| %>
-    <li><%= consumption.food.name %></li>
+    <li> <%= consumption.food.name %></li>
   <% end %>
 </ul>
 <%= render :partial => 'consumptions/form', locals: {:@user => @user, :@consumption => @user.consumptions.new, :@foods => Food.all }%>
